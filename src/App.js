@@ -18,26 +18,14 @@ class App extends Component {
     const uploadOptions = {
       baseUrl: 'http://localhost:3000/upload',
       dataType: 'csv',
-      didChoose: (files) => {
-        console.log('you choose', typeof files == 'string' ? files : files[0].name);
-      },
       beforeUpload: (files) => {
-        console.log(files);
         return true;
       },
       didUpload: (files) => {
         Papa.parse(files[0], parseOptions)
       },
-      uploading: (progress) => {
-        console.log(progress);
-        console.log('loading...', progress.loaded / progress.total + '%');
-      },
-      uploadSuccess: (resp) => {
-        console.log(resp)
-        console.log('upload success!');
-      },
       uploadError: (err) => {
-        console.log(err.message);
+        console.error(err.message);
       }
     }
 
