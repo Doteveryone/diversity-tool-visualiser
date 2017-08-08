@@ -1,36 +1,25 @@
 import React, { Component } from 'react';
-import Papa from 'papaparse';
-import ReactUploadFile from 'react-upload-file';
+import { Route } from 'react-router-dom';
+import { FileUpload, Visualisation } from './components';
 import './App.css';
 
 class App extends Component {
   render() {
-    const parseOptions = {
-      delimiter: ',',
-      header: true,
-      comments: false,
-      complete: (results, file) => {
-        console.log(results);
-      }
-    };
+    const resultsCallback = (results, history) => {
+      this.setState({ results: results });
+    }
 
-    const uploadOptions = {
-      baseUrl: 'http://localhost:3000/upload',
-      dataType: 'csv',
-      beforeUpload: (files) => {
-        return true;
-      },
-      didUpload: (files) => {
-        Papa.parse(files[0], parseOptions)
-      },
-      uploadError: (err) => {
-        console.error(err.message);
+    const pickComponent = () => {
+      if (this.state && this.state.results) {
+        return <Visualisation results={this.state.results} />
+      } else {
+        return <FileUpload resultsCallback={resultsCallback} />;
       }
     }
 
     return (
-      <div className="App">
-        <ReactUploadFile options={uploadOptions} />
+      <div>
+        <Route exact path="/" render={() => pickComponent()} />
       </div>
     );
   }
