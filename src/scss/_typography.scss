@@ -1,0 +1,59 @@
+body {
+  font-family: $body;
+  @include body;
+  font-weight: 300;
+  color: $black;
+}
+
+article {
+  p, ul, li {
+    @include body;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+aside {
+  color: $darkgrey;
+  @include body-small;
+  padding-top: $gutter/2;
+
+  p {
+    @include body-small;
+  }
+}
+
+article  {
+  h1 {
+    @include heading-large;
+  }
+
+  h2 {
+    @include heading;
+  }
+
+  h3 {
+    @include heading-small;
+  }
+}
+
+.site-title {
+  @include heading-smallest;
+  text-transform: uppercase;
+  font-weight: 200;
+  color: $yellow;
+  margin-top: 2em;
+}
+
+.footer-header {
+  @include heading-smallest;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+code {
+  background: lighten($lightgrey, 5);
+  padding: 0 2px;
+}

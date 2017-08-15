@@ -1,0 +1,41 @@
+@mixin media($point) {
+   @if $point == desktop {
+     @media (min-width: $desktop) { @content ; }
+  }
+   @else if $point == tablet {
+     @media (min-width: $tablet) { @content ; }
+  }
+  @else if $point == phoneonly {
+     @media (max-width: $tablet)  { @content ; }
+  }
+}
+
+@mixin heading-large() {
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+@mixin heading() {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+@mixin heading-small() {
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+@mixin heading-smallest() {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+@mixin body() {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+@mixin body-small() {
+  font-size: 16px;
+  line-height: 1.6;
+}

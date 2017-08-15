@@ -1,0 +1,42 @@
+.grid {
+  padding: 0 $gutter;
+  width: 100%;
+  @include clearfix;
+
+  @include media(tablet) {
+    max-width: $gridwidth;
+    margin: 0 auto;
+  }
+}
+
+.main {
+  width: 100%;
+  margin: 0 auto;
+  @include clearfix;
+
+  @include media(tablet) {
+    width: 60%;
+    float: left;
+  }
+}
+
+aside {
+  width: 100%;
+  margin-bottom: $gutter;
+
+  @include media(tablet) {
+    width: 50%;
+    margin-right: -60%;
+    float: right;
+  }
+}
+
+.one-third {
+  width: calc(32% - 20px);
+  margin-right: 20px;
+  float: left;
+}
+
+.two-thirds {
+  width: calc(66% - $gutter);
+}

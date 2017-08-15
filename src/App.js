@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { FileUpload, Visualisation } from './components';
-import './App.css';
 
 class App extends Component {
   render() {

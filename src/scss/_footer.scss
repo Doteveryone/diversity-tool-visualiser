@@ -1,0 +1,14 @@
+.footer-wrapper {
+  background: $lightyellow;
+  padding: $gutter 0;
+  margin-top: $gutter * 3;
+}
+
+footer {
+  @include body-small;
+}
+
+.collaborators {
+  list-style-type: none;
+  padding-left: 0;
+}

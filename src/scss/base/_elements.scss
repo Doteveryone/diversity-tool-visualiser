@@ -1,0 +1,25 @@
+hr {
+  height: 1px;
+  background-color: $lightyellow;
+  border: none;
+}
+
+img, object, video, iframe {
+  max-width: 100%;
+}
+
+figure img {
+  display: block;
+}
+
+article img {
+  display: block;
+  margin-bottom: $gutter;
+}
+
+blockquote {
+  border-left: 1px solid $lightyellow;
+  padding-left: $gutter;
+  margin-left: $gutter;
+  margin-right: $gutter;
+}
