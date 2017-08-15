@@ -33,12 +33,13 @@ class Visualisation extends Component {
     const parseResults = () => {
       let results = pullOutResults(this.props.results.data);
       let keys = pullOutKeys(this.props.results.data);
-      return prepDataObject(keys, results); 
+      return prepDataObject(keys, results);
     }
 
     const renderQuestionResults = () => {
       let data = parseResults();
       return _.map(data, (result, key) => {
+        if (key === 'Timestamp') { return; }
         return <div key={key}><QuestionResults results={result} question={key} /></div>;
       });
     }
