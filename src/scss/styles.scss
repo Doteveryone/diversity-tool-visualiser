@@ -13,14 +13,29 @@
 .file-upload-button {
   position: relative;
   width: 7em;
-  height: 2em;
+  height: 2.5em;
   text-align: center;
+  background-color: $yellow;
+  border: none;
+  border-bottom: 5px solid darken($yellow, 10);
+  -webkit-appearance: none;
+  border-radius: 3px;
+  &:hover {
+    color: $black;
+    background-color: lighten($yellow, 10);
+    border-bottom: 5px solid darken($yellow, 5);
+  }
+  &:active, &:focus {
+    color: $black;
+    background-color: darken($yellow, 10);
+    border-bottom: 5px solid darken($yellow, 20);
+  }
 }
 
 .file-upload-button:after {
   content: 'Select file';
   position: absolute;
-  top: 0.3em;
+  top: 0.5em;
   width: 100%;
   left: 0;
   text-align: center;
