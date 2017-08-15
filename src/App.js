@@ -17,9 +17,11 @@ class App extends Component {
     }
 
     return (
-      <div>
-        <Route exact path="/" render={() => pickComponent()} />
-      </div>
+      <main aria-label="Content">
+        <div className="grid">
+          <Route exact path="/" render={() => pickComponent()} />
+        </div>
+      </main>
     );
   }
 }

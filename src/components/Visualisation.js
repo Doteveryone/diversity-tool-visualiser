@@ -13,7 +13,7 @@ class Visualisation extends Component {
     }
 
     const pullOutResults = (objects) => {
-      return this.props.results.data.map(result => {
+      return objects.map(result => {
         return result;
       });
     }
@@ -21,12 +21,19 @@ class Visualisation extends Component {
     const prepDataObject = (keys, results) => {
       let data = {};
       keys.map(question => {
+        let multipleAnswersPerResponse;
         let values = _.pluck(results, question);
         values = values.map(value => {
+          if (value.indexOf(';') !== -1) {
+            console.log(value)
+            multipleAnswersPerResponse = true;
+          }
           return value.split(';');
         });
-        data[question] = _.countBy(_.flatten(values));
-      });
+        data[question] = {};
+        data[question].data = _.countBy(_.flatten(values));
+        data[question].meta = { multipleAnswersPerResponse: multipleAnswersPerResponse, responseCount: values.length };
+      } );
       return data;
     }
 
@@ -40,14 +47,18 @@ class Visualisation extends Component {
       let data = parseResults();
       return _.map(data, (result, key) => {
         if (key === 'Timestamp') { return; }
-        return <div key={key}><QuestionResults results={result} question={key} /></div>;
+        return <div key={key}><QuestionResults results={result.data} meta={result.meta} question={key} /></div>;
       });
     }
 
     return (
-      <div className="visualisation">
+      <article className="visualisation main">
+        <header>
+          <h1>This is how your company is doing.</h1>
+        </header>
+        <p>Hello some text? Maybe we need to write a little bit here about what’s going on.</p>
         {renderQuestionResults()}
-      </div>
+      </article>
     );
   }
 }
