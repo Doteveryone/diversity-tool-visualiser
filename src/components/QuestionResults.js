@@ -7,7 +7,6 @@ class QuestionResults extends Component {
   render() {
 
     const prepData = () => {
-      console.log(this.props)
       return _.map(this.props.results, (result, label) => {
         return { y: result, label: label };
       });
@@ -22,6 +21,8 @@ class QuestionResults extends Component {
     const responseCount = () => {
       return <p>This question received {this.props.meta.responseCount} responses.</p>;
     }
+
+    const range = n => Array.from({length: n}, (value, key) => key)
 
     return (
       <div className="results">
@@ -44,7 +45,7 @@ class QuestionResults extends Component {
           />
           <VictoryAxis
             tickFormat={_.pluck(prepData(), 'label')}
-            tickValues={[0, 1, 2, 3, 4]}
+            tickValues={range(Object.keys(this.props.results).length)}
           />
         </VictoryChart>
       </div>
