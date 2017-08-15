@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { QuestionResults } from '../components';
+import { QuestionProtected } from '../components';
 import _ from 'underscore';
 
 class Visualisation extends Component {
   render() {
+
+    const privacyQuestion = 'Rather not say';
 
     const pullOutKeys = (objects) => {
       let keys = objects.map(result => {
@@ -25,7 +28,6 @@ class Visualisation extends Component {
         let values = _.pluck(results, question);
         values = values.map(value => {
           if (value.indexOf(';') !== -1) {
-            console.log(value)
             multipleAnswersPerResponse = true;
           }
           return value.split(';');
@@ -47,8 +49,16 @@ class Visualisation extends Component {
       let data = parseResults();
       return _.map(data, (result, key) => {
         if (key === 'Timestamp') { return; }
-        return <div key={key}><QuestionResults results={result.data} meta={result.meta} question={key} /></div>;
+        if (protectPrivacy(result)) {
+          return <div key={key}><QuestionProtected question={key} /></div>;
+        } else {
+          return <div key={key}><QuestionResults results={result.data} meta={result.meta} question={key} /></div>;
+        }
       });
+    }
+
+    const protectPrivacy = (result) => {
+      return result.data[privacyQuestion] > 0;
     }
 
     return (

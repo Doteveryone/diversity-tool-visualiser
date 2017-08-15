@@ -32,9 +32,13 @@ aside {
 }
 
 .one-third {
-  width: calc(32% - 20px);
-  margin-right: 20px;
-  float: left;
+  width: 100%;
+  
+  @include media(tablet) {
+    width: calc(32% - 20px);
+    margin-right: 20px;
+    float: left;
+  }
 }
 
 .two-thirds {
