@@ -5,30 +5,47 @@ import _ from 'underscore';
 class Visualisation extends Component {
   render() {
 
-    const displayResults = () => {
-
-      let results = this.props.results.data.map(result => {
-        return result;
-      });
-      let keys = this.props.results.data.map(result => {
+    const pullOutKeys = (objects) => {
+      let keys = objects.map(result => {
         return _.keys(result);
       });
-      keys = _.uniq(_.flatten(keys));
+      return _.uniq(_.flatten(keys));
+    }
 
+    const pullOutResults = (objects) => {
+      return this.props.results.data.map(result => {
+        return result;
+      });
+    }
+
+    const prepDataObject = (keys, results) => {
       let data = {};
       keys.map(question => {
-        data[question] = _.pluck(results, question);
+        let values = _.pluck(results, question);
+        values = values.map(value => {
+          return value.split(';');
+        });
+        data[question] = _.countBy(_.flatten(values));
       });
-      console.log(data)
+      return data;
+    }
 
-      return this.props.results.data.map((result, index) => {
-        return <div key={index}><p>{result['What is your sexuality?']}</p><QuestionResults results={data} /></div>;
+    const parseResults = () => {
+      let results = pullOutResults(this.props.results.data);
+      let keys = pullOutKeys(this.props.results.data);
+      return prepDataObject(keys, results); 
+    }
+
+    const renderQuestionResults = () => {
+      let data = parseResults();
+      return _.map(data, (result, key) => {
+        return <div key={key}><QuestionResults results={result} question={key} /></div>;
       });
     }
 
     return (
       <div className="visualisation">
-        {displayResults()}
+        {renderQuestionResults()}
       </div>
     );
   }
