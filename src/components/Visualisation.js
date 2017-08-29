@@ -68,6 +68,13 @@ class Visualisation extends Component {
         </header>
         <p>Hello some text? Maybe we need to write a little bit here about what’s going on.</p>
         {renderQuestionResults()}
+        <h2>What to do next?</h2>
+        <p>Here are some resources that can help you improve your company diversity:</p>
+        <ul>
+          <li><a href="#">A link to something</a></li>
+          <li><a href="#">A link to something</a></li>
+          <li><a href="#">A link to something</a></li>
+        </ul>
       </article>
     );
   }

@@ -8,7 +8,7 @@ class QuestionProtected extends Component {
         <aside>
           <p>See <a href="#">our thinking</a> behind making this decision.</p>
         </aside>
-        <h2>{this.props.question}</h2>
+        <h3>{this.props.question}</h3>
         <p>Due to respondents’ privacy concerns we can’t visualise results for public sharing.</p>
       </div>
     );

@@ -26,7 +26,7 @@ class QuestionResults extends Component {
 
     return (
       <div className="results">
-        <h2>{this.props.question}</h2>
+        <h3>{this.props.question}</h3>
         <aside>
           {responseCount()}
           {multipleAnswers()}
