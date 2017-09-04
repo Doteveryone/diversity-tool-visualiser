@@ -2,6 +2,7 @@
   "name": "visualiser",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://localhost:4000/visualise-the-data",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "core-js": "^2.5.0",
