@@ -34,22 +34,20 @@ function FileUpload({
         <header>
           <h1>Share your results</h1>
         </header>
-        <p>Upload the CSV file exported from the survey to see the visualisation of your company stats.</p>
-        <div className="file-upload">
-          <ReactUploadFile options={uploadOptions} chooseFileButton={<button className="file-upload-button"></button>} />
-        </div>
-
-        <h2>What’s shared</h2>
-        <p>This tool is intended for making a public commitment to improving diversity in your company. If any of the repondents decided they didn’t want to publicly share their answer, even in aggregate, the question will be left out to protect their privacy.</p>
-
-        <h2>Finding your Google Form results</h2>
-        <p>This tool can only convert the results exported from Google Forms</p>
+        <h2>Find your Google Form results</h2>
+        <p>This tool can only convert the results exported from Google Forms.</p>
         <p>You can find the export file:</p>
         <ol>
           <li>Open your survey Google Form.</li>
           <li>View the Responses tab.</li>
           <li>From the "&#8942;" menu select "Download responses (.csv)".</li>
         </ol>
+        <h2>Visualise the data</h2>
+        <p>Upload the CSV file exported from the survey to see the visualisation of your company stats.</p>
+        <div className="file-upload">
+          <ReactUploadFile options={uploadOptions} chooseFileButton={<button className="file-upload-button"></button>} />
+        </div>
+
       </article>
     );
 }
