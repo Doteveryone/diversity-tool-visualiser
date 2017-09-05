@@ -32,10 +32,9 @@ function FileUpload({
 
       <article className="visualisation main">
         <header>
-          <h1>Check how your company is doing.</h1>
+          <h1>Check how your company is doing</h1>
         </header>
-        <p>Upload the CSV file exported from the survey to see the visualisation of your company stats.</p>
-        <p>This tool is intended for making a public commitment to improving diversity in your company. If any of the repondents decided they didn’t want to publicly share their answer, even in aggregate, the question will be left out to protect their privacy.</p>
+        <p>Upload the CSV file exported from the survey to see the visualisation of your company’s stats.</p>
         <div className="file-upload">
           <ReactUploadFile options={uploadOptions} chooseFileButton={<button className="file-upload-button"></button>} />
         </div>

@@ -64,17 +64,12 @@ class Visualisation extends Component {
     return (
       <article className="visualisation main">
         <header>
-          <h1>This is how your company is doing.</h1>
+          <h1>This is how your company is doing</h1>
         </header>
-        <p>Hello some text? Maybe we need to write a little bit here about what’s going on.</p>
+        <p>Take screenshots of the relevant charts to share them publicly, in your internal documents and external communications.</p>
         {renderQuestionResults()}
         <h2>What to do next?</h2>
-        <p>Here are some resources that can help you improve your company diversity:</p>
-        <ul>
-          <li><a href="#">A link to something</a></li>
-          <li><a href="#">A link to something</a></li>
-          <li><a href="#">A link to something</a></li>
-        </ul>
+        <p>Here are <a href="/how-to-improve">some ideas for next steps</a> you can take.</p>
       </article>
     );
   }
