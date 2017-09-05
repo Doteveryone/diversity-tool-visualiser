@@ -6,7 +6,7 @@ import _ from 'underscore';
 class Visualisation extends Component {
   render() {
 
-    const privacyQuestion = 'Rather not say';
+    const privacyQuestion = 'Including my answer in a public dataset might compromise my privacy';
 
     const pullOutKeys = (objects) => {
       let keys = objects.map(result => {
