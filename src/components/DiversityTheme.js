@@ -78,7 +78,7 @@ const theme = {
         fill: gold,
         stroke: "transparent",
         strokeWidth: 0,
-        width: 20
+        width: 40
       },
       labels: baseLabelStyles
     }
