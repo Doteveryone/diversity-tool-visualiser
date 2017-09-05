@@ -68,6 +68,11 @@ class Visualisation extends Component {
         </header>
         <p>Take screenshots of the relevant charts to share them publicly, in your internal documents and external communications.</p>
         {renderQuestionResults()}
+
+        <h2>How to share your results</h2>
+        <p>These visualisations are not available to others as a public web page.</p>
+        <p>To share them publicly, take a screenshot of the graphs and include them in post on your organisation's blog.</p>
+
         <h2>What to do next?</h2>
         <p>Here are <a href="/how-to-improve">some ideas for next steps</a> you can take.</p>
       </article>
