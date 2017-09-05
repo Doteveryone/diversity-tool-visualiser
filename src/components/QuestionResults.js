@@ -6,9 +6,28 @@ import _ from 'underscore';
 class QuestionResults extends Component {
   render() {
 
+    const colors = [
+      "#BC4A35",
+      "#D2781D",
+      "#E5D219",
+      "#A5C61B",
+      "#55BF7E",
+      "#41A9C5",
+      "#416EC5",
+      "#8A56BB",
+      "#BB569D"
+    ];
+
     const prepData = () => {
+      let idx = 0;
       return _.map(this.props.results, (result, label) => {
-        return { y: result, label: label };
+        let data = { y: result, label: label, fill: colors[idx] };
+        if (idx === colors.legth) {
+          idx = 0;
+        } else {
+          idx++;
+        }
+        return data;
       });
     }
 
