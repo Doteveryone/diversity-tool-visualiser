@@ -5,6 +5,10 @@ import ReactUploadFile from 'react-upload-file';
 function FileUpload({
   resultsCallback
 }) {
+    let url = window.location.href;
+    let chunkedUrl = url.split('/');
+    let baseUrl = chunkedUrl[0] + '//' + chunkedUrl[2] + '/upload';
+
     const parseOptions = {
       delimiter: ',',
       header: true,
@@ -15,7 +19,7 @@ function FileUpload({
     };
 
     const uploadOptions = {
-      baseUrl: 'http://localhost:3000/upload',
+      baseUrl: baseUrl,
       dataType: 'csv',
       beforeUpload: (files) => {
         return true;
