@@ -1,12 +1,23 @@
 # Diversity tool visualiser
 
-This is a component of the diversity tool microsite, currently in progress.
+This is a component of [OurDiversity](https://github.com/Doteveryone/diversity-tool-microsite) microsite.
 
 It takes a CSV file and visualises the data contained within it.
 
 ## Technical details
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). It requires client-side JavaScript to display the visualisations.
+
+## Including the visualiser in OurDiversity microsite
+
+Build the production-ready version by running:
+
+```
+npm run build
+```
+
+Copy the contents of the `build` directory to the `visualise-the-data` directory of the [microsite](https://github.com/Doteveryone/diversity-tool-microsite/tree/master/visualise-the-data).
+
 
 ### Development
 
