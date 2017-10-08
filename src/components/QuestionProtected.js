@@ -5,10 +5,10 @@ class QuestionProtected extends Component {
 
     return (
       <div className="results">
-        <aside>
-          <p>See <a href="/protecting-individuals-privacy/">our thinking</a> behind making this decision.</p>
-        </aside>
         <h3>{this.props.question}</h3>
+        <aside>
+          <p>See <a href="/protecting-individuals-privacy/" target="_blank">our thinking</a> behind making this decision.</p>
+        </aside>
         <p>Due to respondents’ privacy concerns we can’t visualise results for public sharing.</p>
       </div>
     );

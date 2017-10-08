@@ -18,10 +18,10 @@ h1, h2, h3, h4, h5, h6 {
 aside {
   color: $darkgrey;
   @include body-small;
-  padding-top: $gutter/2;
 
   p {
     @include body-small;
+    margin-top: 0;
   }
 }
 

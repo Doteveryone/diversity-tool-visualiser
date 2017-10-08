@@ -7,6 +7,7 @@ class Visualisation extends Component {
   render() {
 
     const privacyQuestion = 'Including my answer in a public dataset might compromise my privacy';
+    const hiddenAnswers = ['Prefer to self-describe', 'Not specified above'];
 
     const pullOutKeys = (objects) => {
       let keys = objects.map(result => {
@@ -32,8 +33,12 @@ class Visualisation extends Component {
           }
           return value.split(';');
         });
+        let cleanedUpValues = _.flatten(values);
+        cleanedUpValues = _.reject(cleanedUpValues, value => {
+          return value === hiddenAnswers[0] || value === hiddenAnswers[1];
+        });
         data[question] = {};
-        data[question].data = _.countBy(_.flatten(values));
+        data[question].data = _.countBy(cleanedUpValues);
         data[question].meta = { multipleAnswersPerResponse: multipleAnswersPerResponse, responseCount: values.length };
       } );
       return data;
